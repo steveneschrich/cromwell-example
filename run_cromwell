@@ -1,0 +1,14 @@
+#!/bin/bash
+#SBATCH --mem=4G
+#SBATCH --time=5
+
+#java -Dconfig.file=${HOME}/.local/share/cromwell/cromwell.conf -Dbackend.default="apptainer" -jar ${HOME}/.local/lib/cromwell/cromwell-85.jar run "$@"
+ml load Java
+java \
+    -Xmx4G \
+    -Dconfig.file=$HOME/.local/share/cromwell/cromwell.conf \
+    -DLOG_MODE=standard \
+    -jar ~/.local/lib/cromwell/cromwell-85.jar \
+    run \
+        --options=./workflow-options.json \
+        "$@"
