@@ -1,0 +1,5 @@
+cromwell-executions
+output_dir
+wf_logs
+cromwell-workflow-logs
+call_logs
